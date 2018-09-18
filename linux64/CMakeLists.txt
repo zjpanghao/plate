@@ -1,0 +1,6 @@
+set(BASE /home/panghao/kunlib)
+add_definitions(-g -std=c++11)
+include_directories(./include ${BASE} ${BASE}/user)
+link_directories(../lib   ${BASE}/libs ${BASE}/libs/opencv)
+add_executable(plate main.cpp http-server.cpp plate.cpp)
+target_link_libraries(plate  kunconfig jsoncpp pbase64 crypto event opencv_imgcodecs opencv_core  thplateid glog)
