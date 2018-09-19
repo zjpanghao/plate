@@ -72,8 +72,8 @@
 #define O_RDONLY _O_RDONLY
 #endif
 #endif
-
 #include <thread>
+#include <vector>
 #include <glog/logging.h>
 
 #define MAX_IMG_SIZE 1024*1024*50
@@ -207,6 +207,7 @@ static void identifyCb(struct evhttp_request *req, void *arg) {
   LOG(INFO) << data + (strlen(data) - 10);
   {
     int datalen = strlen(data);
+    out.reserve(datalen / 2 + 1);
      while (datalen > 1) {
        unsigned char c = (ctoi(TO_LOWER(*data))<< 4) | ctoi(TO_LOWER(*data + 1));
        out.push_back(c);
