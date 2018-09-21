@@ -114,7 +114,7 @@ int identify(int channel,
     return -1;
   }
   std::vector<TH_PlateIDResult> resVec(100, {0});
-  TH_RECT rect = {0, 0, width, height};
+  TH_RECT rect = {width/16, height/9, width*7/8, height*7/9};
   int rc = TH_RecogImage(data, width, height, &resVec[0], &maxNum, &rect, getPlateCfg()[channel]);
   if (rc != 0) {
     return rc;
